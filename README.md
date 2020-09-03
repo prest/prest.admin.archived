@@ -1,2 +1,2 @@
 # prest.admin
-A DjangoAdmin like created in React to support pRest interactions
+A DjangoAdmin like created in React to support _p_**REST** interactions
