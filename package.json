@@ -11,7 +11,7 @@
     "start": "next start",
     "test": "jest --watch",
     "test:cov": "jest --coverage",
-    "lint": "eslint ./src",
+    "lint": "eslint './src' './tests'",
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {

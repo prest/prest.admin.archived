@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import Document, { Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 
-export default class MyDocument extends Document {
+export default class PRestDocument extends Document {
   render(): ReactElement {
     return (
       <Html lang="en">
@@ -15,7 +15,7 @@ export default class MyDocument extends Document {
   }
 }
 
-MyDocument.getInitialProps = async (ctx) => {
+PRestDocument.getInitialProps = async (ctx) => {
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 

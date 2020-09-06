@@ -8,10 +8,10 @@ describe('pages/_app', () => {
   describe('render', () => {
     it('should render correctly items on app', () => {
       const wrap = shallow(<PRestDocument />);
-      expect(wrap).toContainMatchingElement(Html)
-      expect(wrap).toContainMatchingElement(Main)
-      expect(wrap).toContainMatchingElement(NextScript)
-      expect(wrap.find(Html)).toHaveProp('lang', 'en')
+      expect(wrap).toContainMatchingElement(Html);
+      expect(wrap).toContainMatchingElement(Main);
+      expect(wrap).toContainMatchingElement(NextScript);
+      expect(wrap.find(Html)).toHaveProp('lang', 'en');
     });
   });
 

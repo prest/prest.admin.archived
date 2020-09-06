@@ -15,7 +15,7 @@ describe('pages/index.tsx', () => {
     });
 
     it('should render index page with tables', () => {
-      const fakeTables = ['foo', 'bar']
+      const fakeTables = ['foo', 'bar'];
       const wrap = shallow(<PRestHome tables={fakeTables.map((name) => ({ name }))} />);
 
       expect(wrap).toContainMatchingElement(List);
@@ -27,20 +27,18 @@ describe('pages/index.tsx', () => {
         const itemText = listItem.find(ListItemText);
 
         expect(link).toHaveProp('href', `/${name}`);
-        expect(listItem).toHaveProp('button')
-        expect(listItem).toHaveProp('component', 'a')
-        expect(itemText).toHaveProp('primary', name)
-      })
+        expect(listItem).toHaveProp('button');
+        expect(listItem).toHaveProp('component', 'a');
+        expect(itemText).toHaveProp('primary', name);
+      });
     });
-  })
+  });
 
   describe('getInitialProps', () => {
     it('should back mocked table value', async () => {
       const resp = await PRestHome.getInitialProps();
-      const tables = [{ name: 'films'}];
+      const tables = [{ name: 'films' }];
       expect(resp).toEqual({ tables });
     });
   });
 });
-
-

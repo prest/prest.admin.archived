@@ -13,11 +13,11 @@ describe('pages/_app', () => {
 
   it('should render correctly items on app', () => {
     const wrap = shallow(<PRestApp Component={FakeComponent} pageProps={fakeProps} />);
-    expect(wrap).toContainMatchingElement(Head)
-    expect(wrap).toContainMatchingElement(CssBaseline)
-    expect(wrap).toContainMatchingElement(ThemeProvider)
-    expect(wrap).toContainMatchingElement(FakeComponent)
-    expect(wrap.find(FakeComponent)).toHaveProp('foo', fakeProps.foo)
-    expect(wrap.find('link')).toHaveLength(14)
-  })
+    expect(wrap).toContainMatchingElement(Head);
+    expect(wrap).toContainMatchingElement(CssBaseline);
+    expect(wrap).toContainMatchingElement(ThemeProvider);
+    expect(wrap).toContainMatchingElement(FakeComponent);
+    expect(wrap.find(FakeComponent)).toHaveProp('foo', fakeProps.foo);
+    expect(wrap.find('link')).toHaveLength(14);
+  });
 });
