@@ -5,6 +5,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { AppProps } from 'next/app';
 
+import Header from '~/components/Header';
+
 import theme from '../theme';
 
 const PRestApp = (props: AppProps): ReactElement => {
@@ -41,6 +43,7 @@ const PRestApp = (props: AppProps): ReactElement => {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <Header />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
