@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
   },
   appBar: {
     background: theme.palette.appBarColor,
+    zIndex: 5,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -89,7 +90,7 @@ export const Header = (): React.ReactElement => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" className={classes.appBar}>
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
           <div className={classes.title}>
             <img src="/site/logo.png" />
