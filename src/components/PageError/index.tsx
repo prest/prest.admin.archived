@@ -5,10 +5,10 @@ type Props = {
   code: string;
   message: string;
   description: string;
+  classes: any;
 };
 
-export const PageError = ({ code, message, description }: Props): React.ReactElement => {
-  const classes = useStyles();
+export const PageError = ({ classes, code, message, description }: Props): React.ReactElement => {
   return (
     <div className={classes.container}>
       <h1 className={classes.h1}>
@@ -20,4 +20,4 @@ export const PageError = ({ code, message, description }: Props): React.ReactEle
   );
 };
 
-export default PageError;
+export default useStyles(PageError);
