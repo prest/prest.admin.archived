@@ -8,11 +8,11 @@ import Tooltip from '@material-ui/core/Tooltip';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 import { useStyles } from './EntityListToolbar.styles';
+import { WithStyles } from '@material-ui/core/styles/withStyles';
 
-interface EntityListToolbarProps {
+interface EntityListToolbarProps extends WithStyles {
   numSelected: number;
   entity: string;
-  classes: AnyObject;
 }
 
 export const EntityListToolbar = ({ classes, numSelected, entity }: EntityListToolbarProps): ReactElement => (

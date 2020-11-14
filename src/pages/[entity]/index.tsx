@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { WithStyles, withStyles } from '@material-ui/core/styles';
 import { PRestTableShowItem } from '@postgresrest/node';
 
 import cli from '~/client/nextApi';
@@ -11,13 +11,11 @@ const useStyles = withStyles((theme) => ({
   },
 }));
 
-type Props = {
+interface Props extends WithStyles {
   entity: string;
   schema: PRestTableShowItem[];
-  classes: { container: string };
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any[];
-};
+  data: AnyObject[];
+}
 
 export const PRestEntity = ({ classes, entity, schema, data }: Props): React.ReactElement => (
   <div className={classes.container}>
