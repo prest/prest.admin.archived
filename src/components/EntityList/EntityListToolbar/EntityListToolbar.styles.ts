@@ -1,6 +1,7 @@
 import { createStyles, lighten, withStyles, Theme } from '@material-ui/core/styles';
 
-export const useStyles = withStyles((theme: Theme) =>
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export const EntityListStyles = (theme: Theme) =>
   createStyles({
     root: {
       paddingLeft: theme.spacing(2),
@@ -19,5 +20,6 @@ export const useStyles = withStyles((theme: Theme) =>
     title: {
       flex: '1 1 100%',
     },
-  }),
-);
+  });
+
+export const useStyles = withStyles(EntityListStyles);
