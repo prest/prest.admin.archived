@@ -6,6 +6,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Link from 'next/link';
 
+import cli from '~/client/nextApi';
+
 type TableEntity = {
   name: string;
 };
@@ -27,7 +29,7 @@ export const PRestHome = ({ tables }: Props): ReactElement => (
 );
 
 PRestHome.getInitialProps = async () => {
-  const tables = [{ name: 'films' }];
+  const tables = await cli.databases();
   return { tables };
 };
 

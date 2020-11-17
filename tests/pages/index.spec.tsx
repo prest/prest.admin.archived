@@ -1,3 +1,5 @@
+jest.mock('../../src/client/nextApi');
+
 import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -6,6 +8,7 @@ import Link from 'next/link';
 import { shallow } from 'enzyme';
 
 import PRestHome from '~/pages';
+import cli from '~/client/nextApi';
 
 describe('pages/index.tsx', () => {
   describe('render', () => {
@@ -36,8 +39,10 @@ describe('pages/index.tsx', () => {
 
   describe('getInitialProps', () => {
     it('should back mocked table value', async () => {
-      const resp = await PRestHome.getInitialProps();
       const tables = [{ name: 'films' }];
+      (cli.databases as jest.Mock).mockResolvedValue(tables);
+
+      const resp = await PRestHome.getInitialProps();
       expect(resp).toEqual({ tables });
     });
   });

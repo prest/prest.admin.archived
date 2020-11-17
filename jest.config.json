@@ -3,6 +3,8 @@
   "setupFilesAfterEnv": ["./node_modules/jest-enzyme/lib/index.js"],
   "testPathIgnorePatterns": ["<rootDir>/.next/", "<rootDir>/node_modules/"],
   "transformIgnorePatterns": ["/node_modules/", "^.+\\.module\\.(css|sass|scss)$"],
+  "coveragePathIgnorePatterns": ["/node_modules/", "/src/theme", "^.+\\.styles\\.ts"],
+  "coverageReporters": ["html", "lcov", "text", "clover"],
   "testMatch": ["**/?(*.)+(spec|test).[jt]s?(x)"],
   "transform": {
     "^.+\\.(js|ts|tsx)$": "babel-jest"

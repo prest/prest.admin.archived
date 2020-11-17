@@ -1,6 +1,10 @@
 /// <reference types="next" />
 /// <reference types="next/types/global" />
 
+declare type Primitives = string | boolean | number | Date | string[] | boolean[] | number[] | Date[];
+declare type GenericList = Primitives[];
+declare type AnyObject = Record<string, Primitives, GenericList, GenericObject>;
+
 declare namespace jest {
   interface ToMatchElementOptions {
       ignoreProps?: boolean;
