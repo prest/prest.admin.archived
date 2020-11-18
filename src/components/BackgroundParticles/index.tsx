@@ -1,14 +1,16 @@
 import React from 'react';
 import Particles, { IParticlesParams } from 'react-particles-js';
-import { withStyles } from '@material-ui/core/styles';
+import { createStyles, WithStyles, withStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = withStyles((theme) => ({
+
+const BackgroundParticlesStyles = (theme: Theme) => createStyles({
   root: {
     '& > canvas': {
       background: theme.palette.secondary.main,
     },
   },
-}));
+})
+const useStyles = withStyles(BackgroundParticlesStyles)
 
 const styles = {
   position: 'absolute',
@@ -88,9 +90,11 @@ const params: IParticlesParams = {
   },
 };
 
-type Props = { classes: Record<string, string> };
+interface Props extends WithStyles<typeof BackgroundParticlesStyles>{
+  
+}
 
-export const BackgroundParticles = ({ classes }: Props): React.ReactElement => {
+export const BackgroundParticles = ({classes}: Props): React.ReactElement => {
   return <Particles style={styles} params={params} className={classes.root} />;
 };
 

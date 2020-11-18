@@ -1,5 +1,5 @@
 import React from 'react';
-import { fade, withStyles } from '@material-ui/core/styles';
+import { createStyles, fade, WithStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import { CustomTheme } from '~/theme';
 
-const useStyles = withStyles((theme: CustomTheme) => ({
+const IndexStyles = (theme: CustomTheme) => createStyles({
   grow: {
     flexGrow: 1,
   },
@@ -83,9 +83,11 @@ const useStyles = withStyles((theme: CustomTheme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
-}));
+})
 
-type Props = { classes: Record<string, string> };
+const useStyles = withStyles(IndexStyles);
+
+interface Props extends WithStyles<typeof IndexStyles>{}
 
 export const Header = ({ classes }: Props): React.ReactElement => (
   <div className={classes.grow}>

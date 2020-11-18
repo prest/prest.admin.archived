@@ -1,6 +1,6 @@
-import { withStyles } from '@material-ui/core/styles';
+import { createStyles, Theme, withStyles } from '@material-ui/core/styles';
 
-const useStyles = withStyles((theme) => ({
+export const PageErrorStyles = (theme: Theme) => createStyles({
   container: {
     height: '100vh',
     justifyContent: 'center',
@@ -34,6 +34,8 @@ const useStyles = withStyles((theme) => ({
     textAlign: 'center',
     margin: '0 0 40px',
   },
-}));
+})
 
-export default useStyles;
+export const useStyles = withStyles(PageErrorStyles)
+
+

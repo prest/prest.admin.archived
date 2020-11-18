@@ -1,11 +1,11 @@
+import { WithStyles } from '@material-ui/core';
 import React from 'react';
-import useStyles from './styles';
+import {useStyles, PageErrorStyles} from './PageError.style';
 
-type Props = {
+interface Props extends WithStyles<typeof PageErrorStyles>{
   code: string;
   message: string;
   description: string;
-  classes: any;
 };
 
 export const PageError = ({ classes, code, message, description }: Props): React.ReactElement => {
