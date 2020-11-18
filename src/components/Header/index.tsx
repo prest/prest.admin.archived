@@ -1,5 +1,5 @@
 import React from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { createStyles, fade, WithStyles, withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -8,12 +8,13 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import { CustomTheme } from '~/theme';
 
-const useStyles = makeStyles((theme: CustomTheme) => ({
+const IndexStyles = (theme: CustomTheme) => createStyles({
   grow: {
     flexGrow: 1,
   },
   appBar: {
     background: theme.palette.appBarColor,
+    zIndex: 5,
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -82,39 +83,39 @@ const useStyles = makeStyles((theme: CustomTheme) => ({
     display: 'flex',
     justifyContent: 'flex-end',
   },
-}));
+})
 
-export const Header = (): React.ReactElement => {
-  const classes = useStyles();
+const useStyles = withStyles(IndexStyles);
 
-  return (
-    <div className={classes.grow}>
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
-          <div className={classes.title}>
-            <img src="/site/logo.png" />
-            <Typography variant="h6" noWrap>
-              pRest
-            </Typography>
+interface Props extends WithStyles<typeof IndexStyles>{}
+
+export const Header = ({ classes }: Props): React.ReactElement => (
+  <div className={classes.grow}>
+    <AppBar position="fixed" className={classes.appBar}>
+      <Toolbar>
+        <div className={classes.title}>
+          <img src="/site/logo.png" />
+          <Typography variant="h6" noWrap>
+            pRest
+          </Typography>
+        </div>
+        <div className={classes.search}>
+          <div className={classes.searchIcon}>
+            <SearchIcon />
           </div>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-              placeholder="Search…"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-          <div className={classes.sectionDesktop} />
-        </Toolbar>
-      </AppBar>
-    </div>
-  );
-};
+          <InputBase
+            placeholder="Search…"
+            classes={{
+              root: classes.inputRoot,
+              input: classes.inputInput,
+            }}
+            inputProps={{ 'aria-label': 'search' }}
+          />
+        </div>
+        <div className={classes.sectionDesktop} />
+      </Toolbar>
+    </AppBar>
+  </div>
+);
 
-export default Header;
+export default useStyles(Header);
